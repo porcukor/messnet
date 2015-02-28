@@ -1,0 +1,173 @@
+extends layout
+
+block content
+  section#munkak
+    header.header
+      h1 Munkák
+      
+    section#main
+      form( id='munka-form')
+        div#kereses
+          span Keresés:
+          input(id='search', placeholder='Keresés', name='search', type='search', results=5)
+        div#szures
+          span Dátum:
+          input(id='filter-date-begin', placeholder='Mettől', name='title', type='date')
+          span -
+          input(id='filter-date-end', placeholder='Meddig', name='title', type='date')
+        div#kuldes
+          button#filter(type='submit') Szűr
+      table#munka-list
+  
+    footer#footer
+  
+  section#chat  
+    header.header
+      h1 Üzenetek
+    section#chat_main
+      input(type='text', id='chat-input-field', size='40')
+      button(id='chat-input-button') Kuldes
+      button#msg1 Defektem van!
+      button#msg2 Várni kell!
+      button#msg3 Itt vagyok!
+      div#messages
+    footer#footer
+      div#info
+        p FutárManipulátor - #{loggedInUser} -
+          a(href='/logout') logout
+  
+    div#popup-munka(title='Új munka felvétele')
+
+      form
+        input#munka_id(type='hidden')
+        fieldset#honnan
+          legend Honnan
+          table
+            tr
+              td
+                label(for='zip') Irányítószám
+              td
+                input#honnan_zip.text.ui-widget-content.ui-corner-all(type='text', name='zip')
+            tr
+              td
+                label(for='varos') Város
+              td
+                input#honnan_varos.text.ui-widget-content.ui-corner-all(type='text', name='varos', value='')
+            tr
+              td
+                label(for='utca') Utca, házszám
+              td
+                input#honnan_utca.text.ui-widget-content.ui-corner-all(type='text', name='utca', value='')
+            tr
+              td
+                label(for='info') Megjegyzés
+              td
+                input#honnan_info.text.ui-widget-content.ui-corner-all(type='text', name='info', value='')
+            
+        fieldset#hova
+          legend Hova
+          table
+            tr
+              td
+                label(for='zip') Irányítószám
+              td
+                input#hova_zip.text.ui-widget-content.ui-corner-all(type='text', name='zip') 
+            tr
+              td
+                label(for='varos') Város
+              td
+                input#hova_varos.text.ui-widget-content.ui-corner-all(type='text', name='varos', value='')
+            tr
+              td
+                label(for='utca') Utca, házszám
+              td
+                input#hova_utca.text.ui-widget-content.ui-corner-all(type='text', name='utca', value='')
+            tr
+              td
+                label(for='info') Megjegyzés
+              td
+                input#hova_info.text.ui-widget-content.ui-corner-all(type='text', name='info', value='')
+        
+        fieldset#extrak
+          legend Extrák
+          label(for='surgos') Sürgős
+          input#surgos.text.ui-widget-content.ui-corner-all(type='checkbox', name='surgos')
+          
+          label(for='tulmeret') Túlméret
+          input#tulmeret.text.ui-widget-content.ui-corner-all(type='checkbox', name='tulmeret')
+   
+          label(for='esti') Esti
+          input#esti.text.ui-widget-content.ui-corner-all(type='checkbox', name='esti')
+
+        fieldset#szemelyek
+          legend Személyek
+          table
+            tr
+              td
+                label(for='megrendelo') Megrendelő
+              td
+                input#megrendelo.text.ui-widget-content.ui-corner-all(type='text', name='megrendelo')
+            tr
+              td
+                label(for='atvevo') Átvevő
+              td
+                input#atvevo.text.ui-widget-content.ui-corner-all(type='text', name='atvevo')
+
+        fieldset#log
+          legend Log
+          table
+            thead
+              tr
+                td Idő
+                td User
+                td Típus
+                td Event
+                td Description
+            tbody
+              tr
+
+        fieldset#admin
+          legend Adminisztráció
+          table
+            tr
+              td
+                label(for='tipus') Típus
+              td
+                select#tipus.text.ui-widget-content.ui-corner-all(type='text', name='tipus')
+                  option(value='1').
+                    1 - Biciklis
+                  option(value='2').
+                    2 - Autós
+                  option(value='3').
+                    3 - Teherbringás
+            tr
+              td
+                label(for='dij') Díj
+              td
+                input#dij.text.ui-widget-content.ui-corner-all(type='text', name='dij')
+            tr
+              td
+                label(for='futar') Futár
+              td
+                select#futar.text.ui-widget-content.ui-corner-all(type='text', name='futar')
+                  option(value='none').
+                    ???
+            tr
+              td
+                label(for='status') Státusz
+              td
+                select#status.text.ui-widget-content.ui-corner-all(type='text', name='status')
+                  option(value='0').
+                    0 - Új
+                  option(value='1').
+                    1 - Hozzárendelve
+                  option(value='2').
+                    2 - Elfogadva
+                  option(value='3').
+                    3 - Felvéve
+                  option(value='4').
+                    4 - Leadva
+                  option(value='5').
+                    5 - Várakozik
+        
+      

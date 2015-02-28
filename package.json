@@ -1,0 +1,22 @@
+{
+  "name": "futar-manipulator",
+  "version": "2.0.2",
+  "author": {
+    "name": "Levente Eros"
+  },
+  "description": "Real-time diszpecser-rendszer node.js es mongodb alapokon",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "main": "./app.js",
+  "dependencies": {
+    "express": "3.4.0",
+    "jade": "*",
+    "mongoose": "*",
+    "socket.io": "*",
+    "dateformat": "*",
+    "googlemaps": "*",
+    "google-distance": "*"
+  }
+}

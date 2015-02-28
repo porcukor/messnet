@@ -1,0 +1,7 @@
+{
+  "version": "0.1",
+  "name": "Manipulator",
+  "package_path" : "http://node.dyndns.org:3456/mobil/test/package.zip",
+  "size": "115",
+  "release_notes": "első release"
+}
